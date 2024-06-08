@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullstack EJS App</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <a href="/tasks/new">Create a New Task</a>
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <strong><%= task.title %></strong>
+                <p><%= task.description %></p>
+                <a href="/tasks/<%= task._id %>/edit">Edit</a>
+                <form action="/tasks/<%= task._id %>/delete" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
